@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box with Events</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+        }
+
+        .box:hover {
+            background-color: #e74c3c;
+        }
+
+        /* CSS Animation */
+        @keyframes move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(200px); }
+        }
+
+        .animate {
+            animation: move 2s ease infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="myBox">Click Me</div>
+
+    <script>
+        const box = document.getElementById('myBox');
+
+        // Click Event
+        box.addEventListener('click', () => {
+            alert('Click Event');
+        });
+
+        // Blur Event
+        box.addEventListener('blur', () => {
+            alert('Blur Event');
+        });
+
+        // Change Event
+        box.addEventListener('change', () => {
+            alert('Change Event');
+        });
+
+        // Double Click Event
+        box.addEventListener('dblclick', () => {
+            alert('Double Click Event');
+        });
+
+        // Focus In Event
+        box.addEventListener('focusin', () => {
+            alert('Focus In Event');
+        });
+
+        // Focus Out Event
+        box.addEventListener('focusout', () => {
+            alert('Focus Out Event');
+        });
+
+        // Mouse Over Event
+        box.addEventListener('mouseover', () => {
+            alert('Mouse Over Event');
+        });
+
+        // Resize Event
+        window.addEventListener('resize', () => {
+            alert('Resize Event');
+        });
+
+        // Animation Start Event
+        box.addEventListener('animationstart', () => {
+            alert('Animation Start Event');
+        });
+
+        // Animation Iteration Event
+        box.addEventListener('animationiteration', () => {
+            alert('Animation Iteration Event');
+        });
+
+        // Animation End Event
+        box.addEventListener('animationend', () => {
+            alert('Animation End Event');
+        });
+
+        // Add/Remove CSS Animation Class
+        let animationActive = false;
+        box.addEventListener('click', () => {
+            if (animationActive) {
+                box.classList.remove('animate');
+            } else {
+                box.classList.add('animate');
+            }
+            animationActive = !animationActive;
+        });
+    </script>
+</body>
+</html>
